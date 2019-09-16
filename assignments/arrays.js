@@ -77,21 +77,36 @@ let inventory = [
 // The dealer can't recall the information for a car with an id of 33 on his lot. Help the dealer find out which car has an id of 33 by logging the car's year, make, and model in the console log provided to you below:
 console.log(`Car 33 is a *car year goes here* *car make goes here* *car model goes here*`);
 
+
+for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].id === 33) {
+        console.log('Car 33 is a ' + inventory[i].car_year + ' ' + inventory[i].car_make + ' ' + inventory[i].car_model + '.');
+    }
+}
 // ==== Challenge 2 ====
 // The dealer needs the information on the last car in their inventory.  What is the make and model of the last car in the inventory?  Log the make and model into the console.
-let lastCar = 0;
-console.log();
+let lastCar = inventory.lenth - 1;
+console.log("Car make " + inventory[inventory.length - 1].car_make + "Car model " + inventory[inventory.length - 1].car_model);
+
+
 
 // ==== Challenge 3 ====
 // The marketing team wants the car models listed alphabetically on the website. Sort all the car model names into alphabetical order and log the results in the console
 let carModels = [];
 let carModelsSorted = [];
-console.log();
+for (let i = 0; i < inventory.length - 1; i++) {
+    let models = inventory[i].car_model;
+    carModels.push(models);
+    let carModelsSorted = carModels.sort();
+    console.log(carModelsSorted);
+};
+/*inventory.sort(/*(a, b) => (a.car_model > b.car_model) ? 1 : -1*/);* /
+console.log(carModelsSorted);
 
 // ==== Challenge 4 ====
 // The accounting team needs all the years from every car on the lot. Create a new array from the dealer data containing only the car years and log the result in the console.
 let carYears = [];
-console.log();
+//console.log(inventory.car_year());
 
 // ==== Challenge 5 ====
 // The car lot manager needs to find out how many cars are older than the year 2000. Using the carYears array you just created, find out how many cars were made before the year 2000 by populating the array oldCars and logging it's length.
